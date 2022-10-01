@@ -15,28 +15,33 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <o:DocumentProperties>
   <o:Author>zlatko</o:Author>
   <o:LastAuthor>zlatko</o:LastAuthor>
-  <o:Revision>9</o:Revision>
-  <o:TotalTime>73</o:TotalTime>
+  <o:Revision>15</o:Revision>
+  <o:TotalTime>108</o:TotalTime>
   <o:Created>2022-09-18T10:27:00Z</o:Created>
-  <o:LastSaved>2022-09-18T14:26:00Z</o:LastSaved>
+  <o:LastSaved>2022-10-01T15:44:00Z</o:LastSaved>
   <o:Pages>2</o:Pages>
-  <o:Words>780</o:Words>
-  <o:Characters>4449</o:Characters>
-  <o:Lines>37</o:Lines>
-  <o:Paragraphs>10</o:Paragraphs>
-  <o:CharactersWithSpaces>5219</o:CharactersWithSpaces>
+  <o:Words>1026</o:Words>
+  <o:Characters>5854</o:Characters>
+  <o:Lines>48</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>6867</o:CharactersWithSpaces>
   <o:Version>12.00</o:Version>
  </o:DocumentProperties>
 </xml><![endif]-->
+<link rel=dataStoreItem href="index_files/item0006.xml"
+target="index_files/props0007.xml">
 <link rel=themeData href="index_files/themedata.thmx">
 <link rel=colorSchemeMapping href="index_files/colorschememapping.xml">
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
-  <w:Zoom>140</w:Zoom>
+  <w:Zoom>150</w:Zoom>
   <w:SpellingState>Clean</w:SpellingState>
   <w:GrammarState>Clean</w:GrammarState>
   <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
+  <w:AutoHyphenation/>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
   <w:ValidateAgainstSchemas/>
   <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
   <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
@@ -535,8 +540,8 @@ span.GramE
 	mso-ansi-font-size:10.0pt;
 	mso-bidi-font-size:10.0pt;}
 @page Section1
-	{size:595.3pt 841.9pt;
-	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 257.3pt 72.0pt 72.0pt;
 	mso-header-margin:35.4pt;
 	mso-footer-margin:35.4pt;
 	mso-paper-source:0;}
@@ -633,8 +638,8 @@ div.Section1
 	mso-level-number-position:left;
 	text-indent:-18.0pt;}
 @list l2
-	{mso-list-id:1654529415;
-	mso-list-template-ids:-1474120490;}
+	{mso-list-id:1716388730;
+	mso-list-template-ids:965640928;}
 @list l2:level1
 	{mso-level-number-format:bullet;
 	mso-level-text:\F0B7;
@@ -668,7 +673,7 @@ ul
 	font-family:"Times New Roman","serif";}
 </style>
 <![endif]--><!--[if gte mso 9]><xml>
- <o:shapedefaults v:ext="edit" spidmax="4098"/>
+ <o:shapedefaults v:ext="edit" spidmax="7170"/>
 </xml><![endif]--><!--[if gte mso 9]><xml>
  <o:shapelayout v:ext="edit">
   <o:idmap v:ext="edit" data="1"/>
@@ -707,7 +712,8 @@ style='mso-fareast-font-family:"Times New Roman"'> projects<o:p></o:p></span></h
 
 <p class=MsoNormal style='text-align:justify'><a name=intro><o:p>&nbsp;</o:p></a></p>
 
-<h3><span style='mso-bookmark:intro'><span style='mso-fareast-font-family:"Times New Roman"'>Introduction<o:p></o:p></span></span></h3>
+<h3 style='text-align:justify'><span style='mso-bookmark:intro'><span
+style='mso-fareast-font-family:"Times New Roman"'>Introduction<o:p></o:p></span></span></h3>
 
 <span style='mso-bookmark:intro'></span>
 
@@ -740,11 +746,10 @@ style='mso-bookmark:CommunicationsSystem'><span style='mso-fareast-font-family:
 "Times New Roman"'><o:p></o:p></span></span></h3>
 
 <p style='text-align:justify'><span style='mso-bookmark:CommunicationsSystem'>I
-start to work on this project because of package of e.g. 80 <span class=SpellE>LiIon</span>
-2170 cells which got by occasion. Unfortunately I cannot find good BMS (good
-means to be able to set min/max battery voltage (I want to charge to e.g.4<span
-class=GramE>..</span>4.1V instead 4.2V) low consumption, balancing to work all
-the time)</span></p>
+start to work on this project because of package of e.g. 80 Li-Ion 21700 cells
+which got by occasion. Unfortunately I cannot find good BMS (good means to be
+able to set min/max battery voltage (I want to charge to e.g.4.0...4.1V instead
+4.2V) low consumption, balancing to work all the time)</span></p>
 
 <p style='text-align:justify'>I decide to use AVR AtTiny13 MCU for cell node.
 Currently only FW is ready (but not tested on real HW). I plan to use UART on
@@ -754,6 +759,16 @@ AVR clock jitter. </p>
 <p style='text-align:justify'>There should be one main cell node (probably PIC
 based) which to control charge, discharge and to communicate with other cell
 nodes.</p>
+
+<p style='text-align:justify'>I bought several DC-DC inverters 24-&gt;5V RTC2-2405SRW-R
+which I want to use for pack to cell charging. They can deliver 400mA@5V, but
+if connected to 3<span class=GramE>..4V</span> cell they provide up to 700mA
+but get overloaded. I increase their current limiting resistor form 0.56 to
+1Ohm and now with connected cell they deliver 400mA (I want to use them as
+current source). They will be controlled via <span class=SpellE>opto</span>
+MOSFET switches and the 5V output will be connected via diode to each cell.</p>
+
+<p style='text-align:justify'><o:p>&nbsp;</o:p></p>
 
 <h3 style='text-align:justify'><a name=BMUconnections><span style='mso-fareast-font-family:
 "Times New Roman"'>HOME Automation system<o:p></o:p></span></a></h3>
@@ -765,19 +780,20 @@ etc). Most of them needs hub or Internet connection to work and consume so much
 power, that you have to stop you water heater for 1<span class=GramE>..2</span>
 days every month to compensate the self consumption! </span></p>
 
-<p style='text-align:justify'><span style='mso-bookmark:BMUconnections'>My system
-is standalone, </span><span style='mso-bookmark:BMUconnections'><span lang=BG
-style='mso-ansi-language:BG'>no hub is required, </span>and consumes just 0.1W
-(1.5VA) per node powered from 220V. I have also kinetic powered nodes, CR2045
-battery powered nodes and last one is TEG thermo valve (powered by thermal
-generator). I have 3 nodes (HW):</span></p>
+<p style='text-align:justify'><span style='mso-bookmark:BMUconnections'>My
+system is standalone, </span><span style='mso-bookmark:BMUconnections'><span
+lang=BG style='mso-ansi-language:BG'>no hub is required </span>and consumes
+just 0.1W (1.5VA) per node powered from 220V. I have also kinetic powered
+switches, CR2045 battery powered sensors for windows and last one is TEG thermo
+valve (powered by thermal generator). I have 3 nodes (HW):</span></p>
 
 <p style='margin-left:36.0pt;text-align:justify;text-indent:-18.0pt;mso-list:
 l0 level1 lfo5'><span style='mso-bookmark:BMUconnections'><![if !supportLists]><span
 style='mso-fareast-font-family:"Times New Roman"'><span style='mso-list:Ignore'>-<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>&#8220;Thermostat&#8221;
 &#8211; node with display and 2 buttons, digital PIR sensor, I2C <span
-class=SpellE>Temp&amp;Hum</span> sensors, RTC (only one have Real Time Clock)</span></p>
+class=SpellE>Temp&amp;Hum</span> sensors, RTC (only node one <span
+class=SpellE>hase</span> Real Time Clock and broadcasts the time to the other)</span></p>
 
 <p style='margin-left:36.0pt;text-align:justify;text-indent:-18.0pt;mso-list:
 l0 level1 lfo5'><span style='mso-bookmark:BMUconnections'><![if !supportLists]><span
@@ -792,22 +808,35 @@ l0 level1 lfo5'><span style='mso-bookmark:BMUconnections'><![if !supportLists]><
 style='mso-fareast-font-family:"Times New Roman"'><span style='mso-list:Ignore'>-<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>&#8220;Switch&#8221;
 &#8211; node which only transmit switch state &#8211; window sensor, light
-switch, remote control. Some are powered by ZF electromagnetic generator (no batteries)</span></p>
+switch, remote control. Some are powered by ZF electromagnetic generator (no
+batteries)</span></p>
 
 <p style='text-align:justify'><span style='mso-bookmark:BMUconnections'>Communication
 protocol is broadcast based, signal oriented with self describing signals (each
 signal has ID and length transmitted<span class=GramE>)&#8211;</span> i.e.
 adding new signals do not require to change SW in all nodes &#8211; they simply
-will skip unknown signals. Nodes are subscribed to specific signals from other
+will skip unknown signals. Nodes are subscribed to specific signals from specific
 nodes.</span></p>
 
 <p style='text-align:justify'><span style='mso-bookmark:BMUconnections'>All
-nodes <span class=GramE>excepts</span> &#8220;Switch&#8221; type have <span
-class=SpellE>bootloader</span> and SW can be updated over the radio at any
-time. I have created PC USB-RF gateway based on <span class=SpellE>Olimex</span>
-PIC board and RF boards. I have PC SW written in C# which allows me to <span
-class=SpellE>reflash</span> devices and to configure them and <span
-class=SpellE>monitr</span> network if needed. </span></p>
+nodes except &#8220;Switch&#8221; type have <span class=SpellE>bootloader</span>
+and SW can be updated over the radio at any time. I have created PC USB-RF
+gateway based on <span class=SpellE>Olimex</span> PIC board and RF boards. I
+have PC SW written in C# which allows me to <span class=SpellE>reflash</span> devices
+and to configure them and monitor network if needed. </span></p>
+
+<p style='text-align:justify'><span style='mso-bookmark:BMUconnections'>I am
+using several &#8220;Actuator&#8221; to control lights (as their consumption is
+less than Chinese PIR sensors more than 2 times) as well some other loads like
+floor heating. Window sensors prevent heating if window is open.</span></p>
+
+<p style='text-align:justify'><span style='mso-bookmark:BMUconnections'>220V
+nodes are powered with capacitor power supply with 100nF capacitor which
+provides 6mA average current, but it is enough to drive 12V <span class=SpellE>bistable</span>
+relay (220uF buffer capacitor provides energy for 20ms activation). This type
+of supply is very simple and reliable &#8211; you can connect it even to 600V
+AC and it will work (X2 cap is used)<span class=GramE>,</span> while any pulse
+supply will explode.</span></p>
 
 <span style='mso-bookmark:BMUconnections'></span>
 
@@ -819,8 +848,8 @@ this project popup from a storm &#8211; the electricity of the house of my wife
 stops and we start to search for devices like phones and tablets which have
 backlight in order to move in the dark&#8230;We have super modern phones or
 tablets, but we stay in the dark? I decide to solve the problem. First I think
-that switching to 12V DC power for lights is the best option because, because
-the battery is just connected the lines and that&#8217;s all. But after some
+that switching to 12V DC power for lights is the best option, because the
+battery is just connected the lines and that&#8217;s all. But after some
 thinking and calculations, I decide to use 220V UPS because efficiency of 220V
 LED lamps reach already 160&#8230;200lm/W, while 12V LED lamps stay around or
 below 100lm/W. Additionally 12DC supply has to work all the time and should be
@@ -830,28 +859,40 @@ extremely reliable. </span></p>
 of standard UPS and invertors, but unfortunately I did not find my. Almost all
 have no load consumption of 300&#8230;400mA. This means that if the power stops
 early in the morning, the UPS will draw 4Ah for next 10h and when night comes
-and we need light, the battery will be almost empty (I want to use standard 7Ah
-battery). Finally I found in one PV inverter spec description of so called &#8220;search&#8221;
-mode which can decrease consumption from 400 to 40mA. This was what I need! But
-the inverter was quire big and powerful and I need only 50-100W max. I have asked
-one local Bulgarian manufacturer of the UPS to add such function in their products
-and to buy one, but their answer was &#8220;not possible&#8221;. Ok, I buy one <span
-class=SpellE>thoroidal</span> 100VA 220V-9V transformer, one VNH5019 H-bridge
-board and with old giant 40 pin PIC, I have created sine UPS. After some weeks
-experiments I have UPS with search mode which consumes below 2mA!!! Search mode
-generates one sine wave every 2 seconds and checks for load change. When there
-is no 220V power, after max 2 sec. the inverter goes on and you have light
-again! If you switch off lights, the UPS immediately enters search mode. Thus
-it can work hundreds of hours without significant battery discharge and to
-provide you power when you need! First prototype works 1 year and I replace it
-with second one with specially designed PCB and discrete MOSFET H-bridge which
-more efficient than VNH5019 <span class=GramE>( I</span> like efficiency). </span></p>
+and we need light, the battery will be almost empty (I want to use standard 12V
+/ 7Ah battery). Finally I found in one PV inverter spec. description of so
+called &#8220;search&#8221; mode which can decrease consumption from 400 to
+40mA. This was what I need! But the inverter was quire big and powerful and I
+need only 50-100W max. I have asked one local Bulgarian manufacturer of the UPS
+to add such function in their products and to buy one, but their answer was &#8220;not
+possible&#8221;. Ok, I buy one <span class=SpellE>toroidal</span> 100VA 220V-9V
+transformer, one VNH5019 H-bridge board and with old giant 40 pin PIC, I have
+created sine UPS. After some weeks experiments I have UPS with search mode
+which consumes below 2mA!!! Search mode generates one sine wave every 2 seconds
+and checks for load change. When there is no 220V power, after max 2 sec. the
+inverter goes on and you have light again! If you switch off lights, the UPS
+immediately enters search mode. Thus it can work hundreds of hours without
+significant battery discharge and to provide you power when you need! First
+prototype works 1 year and I replace it with second one with specially designed
+PCB and discrete MOSFET H-bridge which more efficient than VNH5019 (I like the
+efficiency). For stabilize the output voltage I use <span class=SpellE>optocoupler</span>,
+but it turns out that it has high temperature dependency (e.g. 1V/C). My last
+version is not using voltage feedback but only battery current supply feedback
+&#8211; I compensate sine PWM using transformer equations (knowing transformer
+winding resistance) to keep output stable &#8211; and it works better than <span
+class=SpellE>optocoupler</span>. Charging of the battery is realized with H <span
+class=SpellE>brigde</span> <span class=GramE>too,</span> by driving low side
+MOSFETS only. So the final schematic is quite simple.</span></p>
 
-<p style='text-align:justify'><span style='mso-bookmark:Circuit'>Technical
-data:</span></p>
+<p style='text-align:justify'><span style='mso-bookmark:Circuit'><o:p>&nbsp;</o:p></span></p>
+
+<p style='text-align:justify'><span style='mso-bookmark:Circuit'>Technical data
+of UPS for lights:</span></p>
 
 <p style='text-align:justify'><span style='mso-bookmark:Circuit'>100VA
 transformer</span></p>
+
+<p style='text-align:justify'><span style='mso-bookmark:Circuit'>Pure Sine Wave</span></p>
 
 <p style='text-align:justify'><span style='mso-bookmark:Circuit'>120mA no load
 current</span></p>
@@ -862,11 +903,11 @@ mode current </span></p>
 <p style='text-align:justify'><span style='mso-bookmark:Circuit'>2 sec search
 period</span></p>
 
-<p style='text-align:justify'><span style='mso-bookmark:Circuit'>7Ah battery</span></p>
+<p style='text-align:justify'><span style='mso-bookmark:Circuit'>12V / 7Ah
+battery</span></p>
 
 <p style='text-align:justify'><span style='mso-bookmark:Circuit'><span
-style='mso-spacerun:yes'>&nbsp;</span><span
-style='mso-spacerun:yes'>&nbsp;</span></span></p>
+style='mso-spacerun:yes'>&nbsp; </span></span></p>
 
 <h3 style='text-align:justify'><span style='mso-bookmark:Circuit'><span
 style='mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></span></h3>
@@ -885,4 +926,3 @@ style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
 </body>
 
 </html>
-
